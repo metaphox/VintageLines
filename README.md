@@ -1,4 +1,11 @@
-# CURRENTLY NOT BEING MAINTAINED – IF YOU WOULD LIKE TO TAKE COMMAND, LET ME KNOW!
+#This is a modified fork of VintageLines v0.5
+You may find the original repository at: [https://github.com/tmanderson/VintageLines](https://github.com/tmanderson/VintageLines) .
+
+The tweaks are:
+
+  - show relative line number along the absolute one in normal mode. As showing the absolute line number for line 0 just like in Vim is nearly impossible, so I think this is ok-ish, at least for me.
+  - set the color of the relative line number to dark blue.
+  - don't show the current line as line 0.
 
 ## VintageLines v0.5
 ### Jankily making relative line numbers in [Vintage mode](http://www.sublimetext.com/docs/2/vintage.html)
