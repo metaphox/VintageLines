@@ -15,7 +15,7 @@ class VintageLinesEventListener(sublime_plugin.EventListener):
 	def showRelativeNumbers(self):
 		view = self.view
 
-		view.settings().set('line_numbers', False)
+#		view.settings().set('line_numbers', False)
 
 		cur_line = view.rowcol(view.sel()[0].begin())[0]
 		start_line = max(cur_line-self.icon_count, 0)
@@ -30,9 +30,12 @@ class VintageLinesEventListener(sublime_plugin.EventListener):
 
 		for i in range(start_line, start_line + len(lines)):
 			name = 'linenum' + str(i-start_line)
-			icon = str(int(math.fabs(cur_line - i)))
+			n = cur_line - i
+			icon = str(int(math.fabs(n)))
 
-			view.add_regions(name, [lines[i-start_line]], 'linenums', self.icon_path % (sublime.platform(), icon), sublime.HIDDEN)
+			if n != 0:
+				view.add_regions(name, [lines[i-start_line]], 'linenums', self.icon_path % (sublime.platform(), icon), sublime.HIDDEN)
+
 
 	def removeRelativeNumbers(self):
 		self.view.settings().set('line_numbers', True)

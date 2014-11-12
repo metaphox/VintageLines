@@ -6,10 +6,10 @@
 
 #if defined(__MACH__)
 #define FONT_FACE "menlo"
-#define FONT_SIZE 11.0
-#define BRIGHTNESS 0.7
+#define FONT_SIZE 12.0
+#define BRIGHTNESS 0.9
 #define HEIGHT 15
-#define WIDTH 15
+#define WIDTH 20 
 #define PATH "icons/osx/%d.png"
 #elif defined(__linux__)
 #define FONT_FACE "monospace"
@@ -54,8 +54,8 @@ void create_pngs(int surfacewidth, int surfaceheight, float fontsize, const char
         cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
         cairo_paint (cr);
 
-        cairo_set_source_rgb(cr, BRIGHTNESS, BRIGHTNESS, BRIGHTNESS);
-        cairo_move_to(cr, surfacewidth-align-strlen(buf)*fontwidth, fontsize);
+        cairo_set_source_rgb(cr, 0.41, 0.54, 0.67);
+        cairo_move_to(cr, surfacewidth-(align/2)-strlen(buf)*fontwidth, fontsize);
         cairo_show_text(cr, buf);
         sprintf(buf, format, i);
         cairo_surface_write_to_png(surface, buf);
