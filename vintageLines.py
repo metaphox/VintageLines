@@ -28,7 +28,7 @@ class VintageLinesEventListener(sublime_plugin.EventListener):
 			last_text_point = lines[-1].end() + 1
 			lines.append(sublime.Region(last_text_point, last_text_point))
 
-		for i in range(start_line, start_line + len(lines)):
+		for i in range(start_line + 1, start_line + len(lines)):
 			name = 'linenum' + str(i-start_line)
 			icon = str(int(math.fabs(cur_line - i)))
 
